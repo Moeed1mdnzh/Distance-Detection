@@ -16,7 +16,7 @@ person's face and the camera by using the ultrasonic distance measurement sensor
 
 #Circuit
 
-To complete the circuit, connect the first wire to the VCC ping of ultrasonic sensor and the other head to the 5V of arduino,
+To complete the circuit, connect the first wire to the VCC pin of ultrasonic sensor and the other head to the 5V of arduino,
 then connect the second wire to the trig pin and the other head to the 13th pin of arduino,connect the third wire to the echo pin
 and the 11th pin and for the last wire which is really simple just connect it to the GND of ultrasonic sensor pin and arduino's GND pin.
 After completing the whole circuit you can simply somehow connect the sensor to the webcam, I myself used tape to connect it.Remember 
