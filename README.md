@@ -8,7 +8,7 @@ person's face and the camera by using the ultrasonic distance measurement sensor
 
 ![](https://github.com/Moeed1mdnzh/Distance-Detection/blob/master/components.jpg)
 
--A logitech or hayic webcam
+-A logitech or haiyc webcam
 -A hc-sr04 ultrasonic sensor
 -An arduino board
 -Cable
