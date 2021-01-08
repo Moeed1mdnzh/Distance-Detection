@@ -1,7 +1,7 @@
 import cv2
 import numpy as np 
 
-cap = cv2.VideoCapture(2,cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(1)
 faces = cv2.CascadeClassifier("face.xml")
 
 while True:
