@@ -31,3 +31,87 @@ The second project works without arduino and it's only pure python code. The way
 between your face and the webcam is that as you get closer to the webcam the size of the rectangle around your face increases
 which means that when you are too close to webcam the size of the rectangle is also close to the size of the current frame.
 So it basically depeneds on the rectangle's size.
+
+import random as r 
+from time import sleep
+
+class Player:
+	def __init__(self,Range=(0,100)):
+		self.range = Range
+		self.guessed = False 
+		self.computerNum = r.randint(self.range[0],self.range[1])
+
+	def play(self):
+		while not self.guessed:
+			try:
+				playerNum = int(input('Enter your number -> ')) 
+			except ValueError:
+				print("GIVING UP...")
+				sleep(1)
+				print("GAVE UP")
+				quit()
+			if playerNum == self.computerNum:
+				self.guessed = True
+			if playerNum > self.computerNum:
+				print("lower")
+			if playerNum < self.computerNum:
+				print("higher")
+		print("congrats!! You guessed my number")
+
+class Computer:
+	def __init__(self,Range=(0,100)):
+		self.range = Range 
+		self.guessed = False
+		self.computerNum = r.randint(self.range[0],self.range[1])
+
+	def load(self):
+		print("loading the game... Please be patient")
+		for _ in range(2):
+			print(".")
+			sleep(0.5)
+			print("..")
+			sleep(0.5)
+			print("...")
+			sleep(0.5)
+
+	def play(self):
+		self.load()
+		while not self.guessed:
+			choice = input(f"Is your number {self.computerNum} ?")
+			if choice in ["Yes","yes"]:
+				self.guessed = True
+			if choice == "higher":
+				self.range = (self.computerNum,self.range[1])
+				self.computerNum = r.randint(self.range[0],self.range[1])
+			if choice == "lower":
+				self.range = (self.range[0],self.computerNum)
+				self.computerNum = r.randint(self.range[0],self.range[1])
+
+		print("congrats!! I guessed it")
+
+class Game:
+	def __init__(self,section):
+		self.section = section 
+		self.ended = False
+		self.sections = [['p','P'],['c','C']]
+
+	def main(self):
+		if self.section in self.sections[0]:
+			Range = tuple(map(int,input('Please enter the range of number for computer to choose\n Like the following example : 0,100 \n ->').split(',')))
+			p = Player(Range)
+			p.play()
+		if self.section in self.sections[1]:
+			Range = tuple(map(int,input('Please enter the range for guessing number\n Like the following example : 0,100 \n ->').split(',')))
+			c = Computer(Range)
+			c.play()
+
+
+def main():
+	section = input('Enter the section ->')
+	if section not in ['p','c','P','C']:
+		main()
+	g = Game(section)
+	g.main()
+
+if __name__ == '__main__':
+	main()
