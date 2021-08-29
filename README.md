@@ -23,7 +23,7 @@ After completing the whole circuit you can simply somehow connect the sensor to 
 you need to know the name of your cable port otherwise it won't work.After figuring out your cable's port name replace the "COM4" port name in 
 the fourth line of the face_detection.py file with your port name.
 
-# Distance-measurement-without-sensors
+# Distance measurement without sensors
 
 SO the second project is for the people who already don't have the components of the previous circuit.
 It includes the "dist_and_face.py" file and "face.xml" file for the haar algorithm to detect your face.
